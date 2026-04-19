@@ -1,5 +1,5 @@
 // Edit Employee Page Component
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { employeeService } from '../services/api';
 import './EmployeeListPage.css';
@@ -21,11 +21,7 @@ const EditEmployeePage = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
-    useEffect(() => {
-        fetchEmployee();
-    }, [id]);
-
-    const fetchEmployee = async () => {
+    const fetchEmployee = useCallback(async () => {
         try {
             const response = await employeeService.getById(id);
             if (response.data.success) {
@@ -36,7 +32,11 @@ const EditEmployeePage = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, [id]);
+
+    useEffect(() => {
+        fetchEmployee();
+    }, [fetchEmployee]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
