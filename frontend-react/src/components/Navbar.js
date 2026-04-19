@@ -21,10 +21,20 @@ const Navbar = ({ user, onLogout }) => {
                 </div>
                 <ul className="navbar-menu">
                     <li><Link to="/dashboard">Dashboard</Link></li>
-                    <li><Link to="/employees">Employees</Link></li>
-                    <li><Link to="/attendance">Attendance</Link></li>
+                    {/* Admin only: Employee Management */}
+                    {user && user.role === 'Admin' && (
+                        <li><Link to="/employees">Employees</Link></li>
+                    )}
+                    {/* Employee only: Attendance & Payroll */}
+                    {user && user.role === 'Employee' && (
+                        <>
+                            <li><Link to="/attendance">Attendance</Link></li>
+                            <li><Link to="/payroll">Payroll</Link></li>
+                        </>
+                    )}
+                    {/* Available to all: Leave */}
                     <li><Link to="/leave">Leave</Link></li>
-                    <li><Link to="/payroll">Payroll</Link></li>
+                    {/* Admin only: Admin Payroll Dashboard */}
                     {user && user.role === 'Admin' && (
                         <li><Link to="/admin/payroll">Payroll (Admin)</Link></li>
                     )}
