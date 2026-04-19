@@ -1,0 +1,114 @@
+# Git Ignore File
+# Ignore files and directories that should not be committed to version control
+
+## Environment Variables
+.env
+.env.local
+.env.*.local
+
+## Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+## Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+## IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+## Build Output
+build/
+dist/
+*.class
+target/
+.gradle/
+*.jar
+*.war
+*.nar
+*.ear
+
+## Database
+*.db
+*.sqlite
+*.sqlite3
+*.log
+*.sql.gz
+
+## Uploads
+uploads/
+temp/
+tmp/
+cache/
+
+## OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+## React Build
+frontend-react/build/
+frontend-react/.env.production.local
+
+## Java
+.classpath
+.project
+.settings/
+*.class
+*.jar
+*.war
+.mvn/
+mvnw
+mvnw.cmd
+
+## System Files
+Thumbs.db
+.bash_history
+.profile
+
+## Testing
+coverage/
+.nyc_output/
+
+## Logs
+logs/
+*.log
+lerna-debug.log*
+
+## Runtime
+pid
+pid.lock
